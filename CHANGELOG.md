@@ -4,9 +4,9 @@ Notable changes to Tiviman. The format follows [Keep a Changelog](https://keepac
 
 ## [Unreleased]
 
-## [0.1.0] - not yet released
+## [0.1.0-beta.1] - 2026-11-02
 
-First public build.
+First public build, published as a pre-release while testing on real TVs continues.
 
 ### Added
 
@@ -17,5 +17,5 @@ First public build.
 - Experimental foreground recording, two-stream multiview, and audio delay, within the limits in `docs/feature-batch.md`.
 - Encrypted on-device storage for playlists and provider credentials.
 
-[Unreleased]: https://github.com/faisalnh/tiviman/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/faisalnh/tiviman/releases/tag/v0.1.0
+[Unreleased]: https://github.com/faisalnh/tiviman/compare/v0.1.0-beta.1...HEAD
+[0.1.0-beta.1]: https://github.com/faisalnh/tiviman/releases/tag/v0.1.0-beta.1
