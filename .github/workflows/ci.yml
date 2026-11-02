@@ -26,7 +26,7 @@ jobs:
           java-version: 17
 
       # Also validates gradle-wrapper.jar against the official checksums.
-      - uses: gradle/actions/setup-gradle@v4
+      - uses: gradle/actions/setup-gradle@v6
 
       # assembleRelease is unsigned here; it catches release-only build failures before tagging.
       - name: Unit tests, lint, debug and release builds
