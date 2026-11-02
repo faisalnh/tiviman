@@ -1,0 +1,134 @@
+<resources>
+    <style name="Theme.Tiviman.Launch" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/tiviman_launch</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowBackground">@color/glass_canvas</item>
+        <item name="android:colorAccent">@color/glass_accent</item>
+        <item name="android:colorControlActivated">@color/glass_accent</item>
+        <item name="android:colorPrimary">@color/glass_canvas</item>
+        <item name="android:colorPrimaryDark">@color/glass_surface</item>
+        <item name="android:textColorPrimary">@color/glass_text</item>
+        <item name="android:textColorSecondary">@color/glass_secondary</item>
+        <item name="android:textColorHint">@color/glass_secondary</item>
+        <item name="android:colorControlNormal">@color/glass_secondary</item>
+        <item name="android:colorControlHighlight">#0FFFFFFF</item>
+        <item name="android:buttonStyle">@style/GlassButton</item>
+        <item name="android:editTextStyle">@style/GlassEditText</item>
+        <item name="android:checkboxStyle">@style/GlassCheckBox</item>
+        <item name="android:listViewStyle">@style/GlassListView</item>
+        <item name="android:spinnerStyle">@style/GlassSpinner</item>
+        <item name="android:dropDownListViewStyle">@style/GlassListView</item>
+        <item name="android:spinnerDropDownItemStyle">@style/GlassDropDownItem</item>
+        <item name="android:alertDialogTheme">@style/GlassDialog</item>
+        <item name="android:dialogTheme">@style/GlassDialog</item>
+    </style>
+
+    <style name="GlassButton" parent="android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/glass_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/glass_focus_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="GlassEditText" parent="android:style/Widget.Material.EditText">
+        <item name="android:background">@drawable/glass_field</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/glass_text</item>
+        <item name="android:textColorHint">@color/glass_secondary</item>
+        <item name="android:textCursorDrawable">@drawable/glass_cursor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="GlassCheckBox" parent="android:style/Widget.Material.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/glass_check</item>
+        <item name="android:buttonTint">@null</item>
+        <item name="android:background">@drawable/glass_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:textColor">@color/glass_focus_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="GlassListView" parent="android:style/Widget.Material.ListView">
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:listSelector">@drawable/glass_row</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+    </style>
+
+    <style name="GlassSpinner" parent="android:style/Widget.Material.Spinner">
+        <item name="android:background">@drawable/glass_button</item>
+        <item name="android:backgroundTint">@null</item>
+        <item name="android:popupBackground">@drawable/glass_panel</item>
+        <item name="android:popupElevation">12dp</item>
+        <item name="android:dropDownSelector">@drawable/glass_row</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="GlassDropDownItem" parent="android:style/Widget.Material.DropDownItem.Spinner">
+        <item name="android:textColor">@color/glass_row_text</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/glass_row</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+
+    <style name="GlassDialog" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/glass_panel</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleBackgroundStyle">@style/GlassTitleBackground</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.45</item>
+        <item name="android:windowMinWidthMajor">55%</item>
+        <item name="android:windowMinWidthMinor">75%</item>
+        <item name="android:windowElevation">12dp</item>
+        <item name="android:colorAccent">@color/glass_accent</item>
+        <item name="android:colorControlActivated">@color/glass_accent</item>
+        <item name="android:colorControlNormal">@color/glass_secondary</item>
+        <item name="android:colorControlHighlight">#0FFFFFFF</item>
+        <item name="android:textColorPrimary">@color/glass_text</item>
+        <item name="android:textColorSecondary">@color/glass_secondary</item>
+        <item name="android:textColorHint">@color/glass_secondary</item>
+        <item name="android:buttonStyle">@style/GlassButton</item>
+        <item name="android:buttonBarButtonStyle">@style/GlassButton</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/GlassButton</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/GlassButton</item>
+        <item name="android:buttonBarNeutralButtonStyle">@style/GlassButton</item>
+        <item name="android:editTextStyle">@style/GlassEditText</item>
+        <item name="android:checkboxStyle">@style/GlassCheckBox</item>
+        <item name="android:listViewStyle">@style/GlassListView</item>
+        <item name="android:spinnerStyle">@style/GlassSpinner</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/glass_radio</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/glass_check</item>
+        <item name="android:textColorAlertDialogListItem">@color/glass_row_text</item>
+    </style>
+
+    <style name="GlassTitleBackground" parent="">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

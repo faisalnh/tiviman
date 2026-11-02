@@ -1,0 +1,1 @@
+First public build: programme guide, M3U, Xtream Codes and Stalker sources, XMLTV import, track selection, sleep timer, picture-in-picture, and encrypted playlist storage.

@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      media3:
+        patterns: ['androidx.media3:*']
+      build-tools:
+        patterns: ['com.android.*', 'org.jetbrains.kotlin*']
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

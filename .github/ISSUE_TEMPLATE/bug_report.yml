@@ -1,0 +1,56 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Don't include playlist or portal URLs, usernames, passwords, MAC addresses, tokens, raw logcat output, or uncropped screenshots of setup screens. Security problems go to [private reporting](https://github.com/faisalnh/tiviman/security/advisories/new).
+  - type: input
+    id: version
+    attributes:
+      label: Tiviman version
+      description: The release file name, or Android Settings → Apps → Tiviman
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: TV model and Android version
+      placeholder: Device model, Android 12
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: Source type
+      options:
+        - M3U playlist
+        - Xtream Codes
+        - Stalker Portal
+        - Sample data (no playlist)
+        - Not related to a source
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps and remote keys pressed
+      placeholder: |
+        1. Open the guide
+        2. Press Left, then Down twice
+        3. Press OK
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and what happened
+    validations:
+      required: true
+  - type: textarea
+    id: stream
+    attributes:
+      label: Stream details (optional)
+      description: Format only, for example HLS, MPEG-TS over HTTP, DASH. Never the address.

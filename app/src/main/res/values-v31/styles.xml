@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.Tiviman.Launch" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/tiviman_launch</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowSplashScreenBackground">@color/tiviman_canvas</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/transparent</item>
+    </style>
+</resources>

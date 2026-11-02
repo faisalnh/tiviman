@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/tiviman_canvas" />
+    <item android:drawable="@drawable/tiviman_wordmark" android:gravity="center"
+        android:width="300dp" android:height="64.93828125dp" />
+</layer-list>

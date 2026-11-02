@@ -1,0 +1,16 @@
+# Runtime captures can contain playlist details, tokens, and viewing data.
+/private/
+*.apk
+.DS_Store
+
+# Android build outputs and machine-local configuration.
+.gradle/
+.kotlin/
+**/build/
+local.properties
+.idea/
+*.iml
+*.jks
+*.keystore
+__pycache__/
+*.pyc

@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="glass_canvas">#101216</color>
+    <color name="glass_surface">#1C2027</color>
+    <color name="glass_surface_raised">#292F38</color>
+    <color name="glass_primary">#F5F7FA</color>
+    <color name="glass_secondary">#B8C0CC</color>
+    <color name="glass_accent">#77B8FF</color>
+    <!-- ColorStateList XML is stored with the scoped drawable resources; Android resolves these aliases as colors. -->
+    <item type="color" name="glass_text" tools:ignore="ReferenceType">@drawable/glass_text</item>
+    <item type="color" name="glass_focus_text" tools:ignore="ReferenceType">@drawable/glass_focus_text</item>
+    <item type="color" name="glass_row_text" tools:ignore="ReferenceType">@drawable/glass_row_text</item>
+    <string name="glass_selected_item">%1$s, Selected</string>
+</resources>

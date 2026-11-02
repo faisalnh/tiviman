@@ -1,0 +1,90 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check tag matches versionName
+        id: version
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          name="$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' app/build.gradle.kts)"
+          if [ "$tag" != "$name" ]; then
+            echo "::error::Tag v$tag does not match versionName $name in app/build.gradle.kts"
+            exit 1
+          fi
+          echo "version=$name" >> "$GITHUB_OUTPUT"
+          case "$name" in
+            *-*) echo "prerelease=true" >> "$GITHUB_OUTPUT" ;;
+            *) echo "prerelease=false" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: true
+
+      - name: Decode signing key
+        env:
+          KEYSTORE_BASE64: ${{ secrets.TIVIMAN_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::TIVIMAN_KEYSTORE_BASE64 is not set. See docs/releasing.md."
+            exit 1
+          fi
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+          echo "TIVIMAN_KEYSTORE_PATH=$RUNNER_TEMP/release.jks" >> "$GITHUB_ENV"
+
+      - name: Test and build signed APK
+        env:
+          TIVIMAN_KEYSTORE_PASSWORD: ${{ secrets.TIVIMAN_KEYSTORE_PASSWORD }}
+          TIVIMAN_KEY_ALIAS: ${{ secrets.TIVIMAN_KEY_ALIAS }}
+          TIVIMAN_KEY_PASSWORD: ${{ secrets.TIVIMAN_KEY_PASSWORD }}
+        run: ./gradlew :app:testDebugUnitTest :app:assembleRelease
+
+      - name: Verify signature and prepare files
+        id: apk
+        run: |
+          apk="tiviman-${{ steps.version.outputs.version }}.apk"
+          cp app/build/outputs/apk/release/app-release.apk "$apk"
+          apksigner="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)/apksigner"
+          "$apksigner" verify --print-certs "$apk"
+          sha256sum "$apk" > "$apk.sha256"
+          echo "file=$apk" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: ${{ steps.apk.outputs.file }}
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APK: ${{ steps.apk.outputs.file }}
+          VERSION: ${{ steps.version.outputs.version }}
+          PRERELEASE: ${{ steps.version.outputs.prerelease }}
+        run: |
+          set -- --verify-tag --generate-notes --title "Tiviman $VERSION"
+          if [ "$PRERELEASE" = "true" ]; then set -- "$@" --prerelease; fi
+          gh release create "$GITHUB_REF_NAME" "$APK" "$APK.sha256" "$@"
+
+      - name: Remove signing key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/release.jks"

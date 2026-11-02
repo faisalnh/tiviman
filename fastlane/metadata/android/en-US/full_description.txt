@@ -1,0 +1,29 @@
+Tiviman plays your own live-TV playlist on Android TV. It opens on a programme guide, and every screen works with the D-pad remote alone.
+
+Tiviman ships no channels, subscriptions, or provider accounts. Add a playlist you already have the right to use.
+
+<b>Sources</b>
+<ul>
+<li>M3U playlists by URL, Xtream Codes accounts, and Stalker portals (live TV only)</li>
+<li>Several saved playlists, with rename, reorder, and a combined search</li>
+<li>Playlists and credentials stored encrypted on the device</li>
+</ul>
+
+<b>Guide</b>
+<ul>
+<li>XMLTV import from a URL, an Xtream account, or the guide declared in an M3U file</li>
+<li>24 hours of schedule to browse and search, with manual channel mapping</li>
+<li>Optional refresh every six hours</li>
+</ul>
+
+<b>Player</b>
+<ul>
+<li>HLS, DASH, and progressive streams</li>
+<li>Video, audio, and caption tracks, display modes, and a sleep timer</li>
+<li>History, Favorites, channel search, and picture-in-picture</li>
+<li>Experimental short recordings, two-stream multiview, and audio delay</li>
+</ul>
+
+No analytics, ads, or accounts. The app connects only to the addresses you enter. HTTP sources are allowed because most providers only serve HTTP.
+
+Tiviman is in early development.
